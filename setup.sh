@@ -1,7 +1,34 @@
 #!/usr/bin/env bash
 
+# TODO:
+# - look up other mac dev setup scripts!
+
 # Finder settings
 # TODO: Fill this in
+
+# Set Home as the default location for new Finder windows
+defaults write com.apple.finder NewWindowTarget -string 'PfHm'
+
+# Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
+defaults write com.apple.finder QuitMenuItem -bool true
+
+# Show icons for hard drives, servers, and removable media on the desktop
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
+defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
+defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
+defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+
+# Expand save panel by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+
+# Disable “natural” scrolling
+defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+
+# Use scroll gesture with the Ctrl (^) modifier key to zoom
+# Doesn't work on Mojave, see discussion at https://github.com/mathiasbynens/dotfiles/issues/849
+# defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
+# defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
 
 # Dock settings
 # TODO: Fill this in
@@ -62,6 +89,7 @@ if echo $installed_casks | grep -wq "firefox" ; then
 else
   brew cask install firefox
   # TODO: Any configurations? Maybe ublock-origin?
+  # https://github.com/gorhill/uBlock/
 fi
 
 if echo $installed_casks | grep -wq "google-chrome" ; then
@@ -69,6 +97,7 @@ if echo $installed_casks | grep -wq "google-chrome" ; then
 else
   brew cask install google-chrome
   # TODO: Any configurations? Maybe ublock-origin?
+  # https://github.com/gorhill/uBlock/
 fi
 
 if echo $installed_casks | grep -wq "sublime-text" ; then
@@ -76,6 +105,8 @@ if echo $installed_casks | grep -wq "sublime-text" ; then
 else
   brew cask install sublime-text
   # TODO: Install license?
+  # Yes, see discussion at:
+  # https://forum.sublimetext.com/t/license-key-entry-from-the-command-line/13980/3
 fi
 
 if echo $installed_brews | grep -wq "docker" ; then
