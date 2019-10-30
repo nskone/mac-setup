@@ -73,18 +73,24 @@ installed_brews=$(brew list | tr -s ' ' '\n')
 installed_casks=$(brew cask list | tr -s ' ' '\n')
 
 # Install mas-cli, which allows us to install apps from the Mac App Store from the CLI
-if echo $installed_brews | grep -q "mas" ; then
-  echo "mas-cli already installed, skipping"
+# if echo $installed_brews | grep -q "mas" ; then
+#   echo "mas-cli already installed, skipping"
+# else
+#   brew install mas
+# fi
+
+# if mas account | grep -q "Not signed in" ; then
+#   echo "$(tput setaf 1)Please manually log into the Mac App Store and rerun this script$(tput sgr 0)"
+#   exit 1
+# fi
+
+# installed_apps=$(mas list)
+
+if echo $installed_brews | grep -wq "awscli" ; then
+  echo "AWS CLI already installed, skipping"
 else
-  brew install mas
+  brew install awscli
 fi
-
-if mas account | grep -q "Not signed in" ; then
-  echo "$(tput setaf 1)Please manually log into the Mac App Store and rerun this script$(tput sgr 0)"
-  exit 1
-fi
-
-installed_apps=$(mas list)
 
 if echo $installed_casks | grep -wq "slack" ; then
   echo "Slack already installed, skipping"
@@ -129,6 +135,12 @@ else
   # TODO: Install license?
   # Yes, see discussion at:
   # https://forum.sublimetext.com/t/license-key-entry-from-the-command-line/13980/3
+fi
+
+if echo $installed_brews | grep -wq "fish" ; then
+  echo "Fish already installed, skipping"
+else
+  brew install fish
 fi
 
 if echo $installed_brews | grep -wq "docker" ; then
