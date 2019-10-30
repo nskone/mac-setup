@@ -65,7 +65,7 @@ else
 fi
 
 echo "Adding taps and running homebrew updates"
-brew tap homebrew/cask-versions
+brew tap adoptopenjdk/openjdk
 brew update
 brew upgrade
 
@@ -155,12 +155,6 @@ else
   brew cask install docker
 fi
 
-if echo $installed_casks | grep -wq "java" ; then
-  echo "Java already installed, skipping"
-else
-  brew cask install java
-fi
-
 if echo $installed_brews | grep -wq "maven" ; then
   echo "Maven already installed, skipping"
 else
@@ -178,6 +172,41 @@ if echo $installed_casks | grep -wq "postman" ; then
 else
   brew cask install postman
 fi
+
+if echo $installed_brews | grep -wq "node" ; then
+  echo "node already installed, skipping"
+else
+  brew install node
+fi
+
+if echo $installed_brews | grep -wq "jenv" ; then
+  echo "jenv already installed, skipping"
+else
+  brew install jenv
+fi
+
+# Add jenv to fish shell (if not already added)
+touch $HOME/.config/fish/config.fish
+grep -qxF "status --is-interactive; and source (jenv init -|psub)" $HOME/.config/fish/config.fish || echo "status --is-interactive; and source (jenv init -|psub)" >> $HOME/.config/fish/config.fish
+
+
+if echo $installed_casks | grep -wq "adoptopenjdk8" ; then
+  echo "adoptopenjdk8 already installed, skipping"
+else
+  brew cask install adoptopenjdk8
+fi
+
+if echo $installed_casks | grep -wq "adoptopenjdk9" ; then
+  echo "adoptopenjdk9 already installed, skipping"
+else
+  brew cask install adoptopenjdk9
+fi
+
+jenv add /Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/
+jenv add /Library/Java/JavaVirtualMachines/adoptopenjdk-9.jdk/Contents/Home/
+
+# Set global java versions to Java 8 for maximum compatibility
+jenv global 1.8
 
 # Configure Safari
 	# Turn on favorites bar
