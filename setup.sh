@@ -167,6 +167,12 @@ else
   brew cask install intellij-idea-ce
 fi
 
+if echo $installed_casks | grep -wq "eclipse-ide" ; then
+  echo "eclipse-ide already installed, skipping"
+else
+  brew cask install eclipse-ide
+fi
+
 if echo $installed_casks | grep -wq "postman" ; then
   echo "postman already installed, skipping"
 else
