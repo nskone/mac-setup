@@ -8,6 +8,7 @@ TODO:
 - Configure iTerm2?
 - Configure browsers and install adblockers?
 	- Find a project to do browser configuration?
+		- https://github.com/ghacksuserjs/ghacks-user.js
 	- https://github.com/gorhill/uBlock/
 - Install Sublime Text license?
 	- https://forum.sublimetext.com/t/license-key-entry-from-the-command-line/13980/3
