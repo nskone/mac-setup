@@ -5,4 +5,5 @@ if [ ! -x "$(which yarn)" ] ; then
   exit 1
 fi
 
-yarn global add parcel-bundler
+# Nevermind, instead install parcel-bundler on a per project basis!
+# yarn global add parcel-bundler
