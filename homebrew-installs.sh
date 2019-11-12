@@ -2,7 +2,7 @@
 
 # Items to install
 
-brews="awscli fish docker maven node jenv"
+brews="awscli fish docker maven node yarn jenv firebase-cli"
 
 casks="slack
   docker
