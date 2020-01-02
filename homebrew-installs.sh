@@ -10,7 +10,7 @@ casks="slack
   firefox google-chrome
   sublime-text intellij-idea-ce eclipse-ide
   postman
-  adoptopenjdk8 adoptopenjdk9"
+  adoptopenjdk8 adoptopenjdk9 adoptopenjdk11"
 
 # Install Homebrew
 

@@ -17,7 +17,7 @@ do
 done
 
 installed_casks=$(brew cask list | tr -s ' ' '\n')
-required_casks="adoptopenjdk8 adoptopenjdk9"
+required_casks="adoptopenjdk8 adoptopenjdk9 adoptopenjdk11"
 
 for item in $required_casks
 do
@@ -33,6 +33,7 @@ grep -qxF "status --is-interactive; and source (jenv init -|psub)" $HOME/.config
 
 jenv add /Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/
 jenv add /Library/Java/JavaVirtualMachines/adoptopenjdk-9.jdk/Contents/Home/
+jenv add /Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home/
 
 # Set global java versions to Java 8 for maximum compatibility
-jenv global 1.8
+jenv global 11.0
