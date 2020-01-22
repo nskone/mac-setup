@@ -26,7 +26,7 @@ brew tap adoptopenjdk/openjdk
 brew update
 brew upgrade
 
-echo "Building lists of installs brews and casks"
+echo "Building list of installed brews and casks"
 installed_brews=$(brew list | tr -s ' ' '\n')
 installed_casks=$(brew cask list | tr -s ' ' '\n')
 
