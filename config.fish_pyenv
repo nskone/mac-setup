@@ -1,0 +1,4 @@
+
+# Configure pyenv
+set -x PYENV_ROOT /usr/local/pyenv
+status --is-interactive; and source (pyenv init -|psub)
