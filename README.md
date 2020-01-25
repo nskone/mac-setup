@@ -5,3 +5,7 @@ Instructions:
 2. Run `setup-mac-defaults.sh` to add some developer friendly Mac OS X configuration defaults
 3. Run `setup-jenv.sh` to configure [jEnv](https://www.jenv.be)
 4. Run `setup-pyenv.sh` to configure [pyenv](https://github.com/pyenv/pyenv)
+
+Future features?
+- Install and setup https://sw.kovidgoyal.net/kitty/
+- Install and setup https://github.com/koekeishiya/skhd
