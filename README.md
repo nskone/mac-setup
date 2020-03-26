@@ -9,3 +9,4 @@ Instructions:
 Future features?
 - Install and setup https://sw.kovidgoyal.net/kitty/
 - Install and setup https://github.com/koekeishiya/skhd
+- Install and setup https://www.hammerspoon.org/go/
